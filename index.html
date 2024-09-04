@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Teacher's Day Ma'am</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e0f7fa;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        video {
+            width: 80%;
+            border: 5px solid #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .popper {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #d81b60;
+            font-size: 2rem;
+            font-weight: bold;
+            animation: pop 1s ease-out;
+            z-index: 2;
+        }
+        @keyframes pop {
+            0% { transform: translate(-50%, -100%) scale(0); }
+            100% { transform: translate(-50%, 0) scale(1); }
+        }
+        .flower {
+            position: absolute;
+            width: 30px;
+            animation: fall 4s infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <video id="video" autoplay playsinline></video>
+    <div class="popper">Thank you for being my guiding light, Happy Teacher's Day Ma'am!</div>
+    <img src="https://path-to-flower-image.png" class="flower" style="left: 10%;" alt="Flower">
+    <img src="https://path-to-flower-image.png" class="flower" style="left: 30%;" alt="Flower">
+    <img src="https://path-to-flower-image.png" class="flower" style="left: 50%;" alt="Flower">
+    <img src="https://path-to-flower-image.png" class="flower" style="left: 70%;" alt="Flower">
+    <img src="https://path-to-flower-image.png" class="flower" style="left: 90%;" alt="Flower">
+    <script>
+        // Access the device's camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+            })
+            .catch(err => console.error('Error accessing the camera:', err));
+    </script>
+</body>
+</html> 
